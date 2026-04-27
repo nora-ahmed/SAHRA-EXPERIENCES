@@ -8,5 +8,5 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Events</pluralLabel>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
 </CustomObject>

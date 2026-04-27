@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Waiver_Reason_Required</fullName>
+    <active>true</active>
+    <description>Waiver Reason is required when a milestone is set to Waived.</description>
+    <errorConditionFormula>
+        AND(
+            ISPICKVAL(Status__c, 'Waived'),
+            ISBLANK(Waiver_Reason__c)
+        )
+    </errorConditionFormula>
+    <errorMessage>A Waiver Reason must be provided before waiving a Payment Milestone.</errorMessage>
+</ValidationRule>
