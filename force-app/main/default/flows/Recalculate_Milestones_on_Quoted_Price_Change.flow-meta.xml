@@ -11,7 +11,7 @@
             <assignToReference>Milestones_To_Update</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>Current_Milestone</elementReference>
+                <elementReference>Loop_Through_Milestones</elementReference>
             </value>
         </assignmentItems>
         <connector>

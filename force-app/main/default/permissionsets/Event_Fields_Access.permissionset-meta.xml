@@ -3,6 +3,11 @@
     <description>Grants read and edit access to all newly created Event custom fields.</description>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Event__c.Cancellation_Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Event__c.Estimated_Budget__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -39,11 +44,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Event__c.Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Event__c.Cancellation_Reason__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
