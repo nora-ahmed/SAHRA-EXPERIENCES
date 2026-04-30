@@ -2,11 +2,12 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Event__c</fullName>
     <label>Event</label>
-    <type>MasterDetail</type>
     <referenceTo>Event__c</referenceTo>
     <relationshipLabel>Payment Milestones</relationshipLabel>
     <relationshipName>Payment_Milestones</relationshipName>
     <relationshipOrder>0</relationshipOrder>
     <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
     <writeRequiresMasterRead>false</writeRequiresMasterRead>
 </CustomField>

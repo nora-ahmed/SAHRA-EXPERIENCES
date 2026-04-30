@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Event_Owner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
     <label>Event Owner</label>
-    <type>Lookup</type>
     <referenceTo>User</referenceTo>
-    <relationshipLabel>Owned Events</relationshipLabel>
     <relationshipName>Owned_Events</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
 </CustomField>

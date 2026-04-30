@@ -3,12 +3,10 @@
     <fullName>End_Date_Before_Start_Date</fullName>
     <active>true</active>
     <description>Event End Date must be on or after Event Start Date.</description>
-    <errorConditionFormula>
-        AND(
+    <errorConditionFormula>AND(
             NOT(ISBLANK(Event_End_Date__c)),
             NOT(ISBLANK(Event_Start_Date__c)),
             Event_End_Date__c &lt; Event_Start_Date__c
-        )
-    </errorConditionFormula>
+        )</errorConditionFormula>
     <errorMessage>Event End Date must be on or after Event Start Date.</errorMessage>
 </ValidationRule>

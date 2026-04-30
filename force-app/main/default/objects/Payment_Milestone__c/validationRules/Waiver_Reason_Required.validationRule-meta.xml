@@ -3,11 +3,9 @@
     <fullName>Waiver_Reason_Required</fullName>
     <active>true</active>
     <description>Waiver Reason is required when a milestone is set to Waived.</description>
-    <errorConditionFormula>
-        AND(
-            ISPICKVAL(Status__c, 'Waived'),
+    <errorConditionFormula>AND(
+            ISPICKVAL(Status__c, &apos;Waived&apos;),
             ISBLANK(Waiver_Reason__c)
-        )
-    </errorConditionFormula>
+        )</errorConditionFormula>
     <errorMessage>A Waiver Reason must be provided before waiving a Payment Milestone.</errorMessage>
 </ValidationRule>

@@ -3,12 +3,10 @@
     <fullName>Confirmed_Requires_Quoted_Price</fullName>
     <active>true</active>
     <description>Prevents progression to Confirmed status until a Quoted Price is set.</description>
-    <errorConditionFormula>
-        AND(
-            ISPICKVAL(Status__c, 'Confirmed'),
+    <errorConditionFormula>AND(
+            ISPICKVAL(Status__c, &apos;Confirmed&apos;),
             ISCHANGED(Status__c),
             ISBLANK(Quoted_Price__c)
-        )
-    </errorConditionFormula>
+        )</errorConditionFormula>
     <errorMessage>The Event cannot be set to Confirmed until a Quoted Price is specified.</errorMessage>
 </ValidationRule>

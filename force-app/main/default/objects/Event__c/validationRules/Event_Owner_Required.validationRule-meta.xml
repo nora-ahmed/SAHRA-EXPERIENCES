@@ -3,8 +3,6 @@
     <fullName>Event_Owner_Required</fullName>
     <active>false</active>
     <description>An Event must always have an assigned Event Owner.</description>
-    <errorConditionFormula>
-        ISBLANK(Event_Owner__c)
-    </errorConditionFormula>
+    <errorConditionFormula>ISBLANK(Event_Owner__c)</errorConditionFormula>
     <errorMessage>An Event Owner must be assigned before saving this record.</errorMessage>
 </ValidationRule>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vendor_Must_Be_Approved</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND(
+  NOT(ISBLANK(Vendor__c)),
+  NOT(ISPICKVAL(Vendor__r.Vendor_Status__c, &quot;Approved&quot;))
+)</errorConditionFormula>
+    <errorMessage>Cannot assign a vendor that is not Approved. Please select an Approved vendor.</errorMessage>
+</ValidationRule>

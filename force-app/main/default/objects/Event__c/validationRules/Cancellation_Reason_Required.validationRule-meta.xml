@@ -3,11 +3,9 @@
     <fullName>Cancellation_Reason_Required</fullName>
     <active>true</active>
     <description>Cancellation Reason is required when an Event is set to Cancelled.</description>
-    <errorConditionFormula>
-        AND(
-            ISPICKVAL(Status__c, 'Cancelled'),
+    <errorConditionFormula>AND(
+            ISPICKVAL(Status__c, &apos;Cancelled&apos;),
             ISBLANK(Cancellation_Reason__c)
-        )
-    </errorConditionFormula>
+        )</errorConditionFormula>
     <errorMessage>A Cancellation Reason must be provided before cancelling an Event.</errorMessage>
 </ValidationRule>
