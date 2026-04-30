@@ -46,6 +46,10 @@
                 <behavior>Edit</behavior>
                 <field>Has_Lead_Coordinator__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Has_Catering_Vendor__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

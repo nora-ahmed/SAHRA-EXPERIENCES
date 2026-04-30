@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Checklist_Testimonial_Captured__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+  OR(
+    NOT(Client_Consented_to_Testimonial__c),
+    AND(Client_Consented_to_Testimonial__c, NOT(ISBLANK(Client_Testimonial__c)))
+  ),
+  &quot;✅ Complete&quot;,
+  &quot;❌ Missing&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Checklist Testimonial Captured</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

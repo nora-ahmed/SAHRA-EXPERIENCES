@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Checklist_Satisfaction_Captured__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(ISBLANK(Client_Satisfaction_Rating__c)), &quot;✅ Complete&quot;, &quot;❌ Missing&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Checklist Satisfaction Captured</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

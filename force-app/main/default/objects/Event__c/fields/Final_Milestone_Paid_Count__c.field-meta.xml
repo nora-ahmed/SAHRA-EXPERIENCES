@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Final_Milestone_Paid_Count__c</fullName>
+    <label>Final Milestone Paid Count</label>
+    <summaryFilterItems>
+        <field>Payment_Milestone__c.Name</field>
+        <operation>equals</operation>
+        <value>Final</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Payment_Milestone__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Paid</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Payment_Milestone__c.Event__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>
