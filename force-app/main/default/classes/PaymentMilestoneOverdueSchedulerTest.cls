@@ -21,7 +21,7 @@ private class PaymentMilestoneOverdueSchedulerTest {
             Expected_Headcount__c = 100,
             Event_Start_Date__c = Date.today().addDays(30),
             Event_End_Date__c = Date.today().addDays(32),
-            Event_Owner__c = testUser.Id,
+            OwnerId = testUser.Id,
             Quoted_Price__c = 500000,
             Status__c = 'Confirmed'
         );

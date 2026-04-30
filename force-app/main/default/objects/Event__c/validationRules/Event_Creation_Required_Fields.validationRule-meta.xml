@@ -2,10 +2,7 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Event_Creation_Required_Fields</fullName>
     <active>true</active>
-    <description>Ensures Status and Quoted Price are mandatory upon Event creation and updates.</description>
-    <errorConditionFormula>OR(
-            ISBLANK(TEXT(Status__c)),
-            ISBLANK(Quoted_Price__c)
-        )</errorConditionFormula>
-    <errorMessage>Status and Quoted Price are mandatory fields and must be populated to save the Event.</errorMessage>
+    <description>Ensures Status is mandatory upon Event creation and updates.</description>
+    <errorConditionFormula>ISBLANK(TEXT(Status__c))</errorConditionFormula>
+    <errorMessage>Status is a mandatory field and must be populated to save the Event.</errorMessage>
 </ValidationRule>
