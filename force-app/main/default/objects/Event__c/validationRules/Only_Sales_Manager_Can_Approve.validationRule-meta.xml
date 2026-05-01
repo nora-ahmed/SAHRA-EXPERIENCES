@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_Sales_Manager_Can_Approve</fullName>
+    <active>true</active>
+    <description>Only users with the Sales Manager role or System Administrator profile can check the Manager Approved box.</description>
+    <errorConditionFormula>AND(
+    OR(
+        ISNEW(),
+        ISCHANGED(Manager_Approved__c)
+    ),
+    Manager_Approved__c = true,
+    $UserRole.Name &lt;&gt; &apos;Sales Manager&apos;,
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;
+)</errorConditionFormula>
+    <errorDisplayField>Manager_Approved__c</errorDisplayField>
+    <errorMessage>Only a Sales Manager can approve events with a Quoted Price above 500,000.</errorMessage>
+</ValidationRule>

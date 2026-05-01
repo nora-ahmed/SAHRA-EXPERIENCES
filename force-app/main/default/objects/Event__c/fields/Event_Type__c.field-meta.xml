@@ -34,6 +34,31 @@
                 <default>false</default>
                 <label>Other</label>
             </value>
+            <value>
+                <fullName>Wedding</fullName>
+                <default>false</default>
+                <label>Wedding</label>
+            </value>
+            <value>
+                <fullName>Engagement</fullName>
+                <default>false</default>
+                <label>Engagement</label>
+            </value>
+            <value>
+                <fullName>Anniversary</fullName>
+                <default>false</default>
+                <label>Anniversary</label>
+            </value>
+            <value>
+                <fullName>Milestone Birthday</fullName>
+                <default>false</default>
+                <label>Milestone Birthday</label>
+            </value>
+            <value>
+                <fullName>Private Celebration</fullName>
+                <default>false</default>
+                <label>Private Celebration</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

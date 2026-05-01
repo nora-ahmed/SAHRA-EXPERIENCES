@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Has_Venue__c</fullName>
-    <formula>NOT(ISBLANK( Event_Venue__c ))</formula>
-    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-    <label>Has Venue</label>
+    <fullName>Client_Testimonial_Captured__c</fullName>
+    <defaultValue>false</defaultValue>
+    <label>Client Testimonial Captured</label>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>
 </CustomField>

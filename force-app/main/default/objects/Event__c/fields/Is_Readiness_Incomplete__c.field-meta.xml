@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Readiness_Incomplete__c</fullName>
+    <formula>OR(
+    AND( Has_Venue__c = FALSE, ISBLANK(Venue_Waiver_Reason__c) ),
+    AND( Catering_Vendor_Count__c = 0, ISBLANK(Catering_Waiver_Reason__c) ),
+    AND( Has_Lead_Coordinator__c = FALSE, ISBLANK(Coordinator_Waiver_Reason__c) )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Readiness Incomplete</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

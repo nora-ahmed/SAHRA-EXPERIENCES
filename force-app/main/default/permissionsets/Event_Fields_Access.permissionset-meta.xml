@@ -28,12 +28,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Event__c.Event_Venue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Event__c.Expected_Headcount__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event__c.Preferred_Venue__c</field>
+        <field>Event__c.Manager_Approved__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

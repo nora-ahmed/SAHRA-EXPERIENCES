@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Dual_Client_Link</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT(ISBLANK(Private_Client__c)),
+    NOT(ISBLANK( Client_Organization__c ))
+)</errorConditionFormula>
+    <errorMessage>An Event cannot be linked to both a Private Client and a Corporate Client. Please select only one.</errorMessage>
+</ValidationRule>

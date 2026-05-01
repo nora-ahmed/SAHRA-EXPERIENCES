@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Social_Event</fullName>
+    <active>true</active>
+    <description>Used for weddings, celebrations, and personal social events</description>
+    <label>Social Event</label>
+    <picklistValues>
+        <picklist>Ceremony_Type__c</picklist>
+        <values>
+            <fullName>Civil</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cultural</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Religious</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Symbolic</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Event_Type__c</picklist>
+        <values>
+            <fullName>Anniversary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engagement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Milestone Birthday</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Private Celebration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wedding</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Plus_One_Policy__c</picklist>
+        <values>
+            <fullName>Allowed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>By Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Allowed</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Confirmed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultation Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultation Scheduled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Executing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>In Planning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Initial Inquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proposal Sent</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

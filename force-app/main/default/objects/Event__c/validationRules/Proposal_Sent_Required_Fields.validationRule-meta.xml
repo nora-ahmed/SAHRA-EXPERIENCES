@@ -4,8 +4,7 @@
     <active>true</active>
     <description>Prevents moving to Proposal Sent unless Expected Headcount, Event Type, Event Start Date, and Quoted Price are populated.</description>
     <errorConditionFormula>AND(
-            NOT(ISPICKVAL(Status__c, &apos;Inquiry&apos;)),
-            NOT(ISPICKVAL(Status__c, &apos;Cancelled&apos;)),
+            ISPICKVAL(Status__c, &apos;Proposal Sent&apos;),
             OR(
                 ISBLANK(Expected_Headcount__c),
                 ISBLANK(TEXT(Event_Type__c)),
@@ -13,5 +12,5 @@
                 ISBLANK(Quoted_Price__c)
             )
         )</errorConditionFormula>
-    <errorMessage>Cannot move past the Inquiry stage until Expected Headcount, Event Type, Event Start Date, and Quoted Price are all populated.</errorMessage>
+    <errorMessage>Cannot move to Proposal Sent until Expected Headcount, Event Type, Event Start Date, and Quoted Price are all populated.</errorMessage>
 </ValidationRule>

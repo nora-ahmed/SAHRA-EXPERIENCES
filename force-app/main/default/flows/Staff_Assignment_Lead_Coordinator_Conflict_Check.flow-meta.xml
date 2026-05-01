@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <customErrors>
+        <name>Lead_Coordinator_Date_Conflict</name>
+        <label>Lead Coordinator Date Conflict</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Loop_Through_Existing_Lead_Assignments</targetReference>
+        </connector>
+        <customErrorMessages>
+            <errorMessage>This staff member is already assigned as Lead Coordinator on another Event during this date range. Please choose a different Lead Coordinator.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>Do_Dates_Overlap</name>
+        <label>Do Dates Overlap?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Loop_Through_Existing_Lead_Assignments</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Overlap_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_Through_Existing_Lead_Assignments.Event__r.Event_Start_Date__c</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Event__r.Event_End_Date__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Loop_Through_Existing_Lead_Assignments.Event__r.Event_End_Date__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Event__r.Event_Start_Date__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lead_Coordinator_Date_Conflict</targetReference>
+            </connector>
+            <label>Overlap Found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Lead_Coordinator</name>
+        <label>Is Lead Coordinator?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Lead_Role</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Role__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Lead Coordinator</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Existing_Lead_Assignments</targetReference>
+            </connector>
+            <label>Lead Role</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Staff Assignment – Lead Coordinator Conflict Check {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Staff Assignment – Lead Coordinator Conflict Check</label>
+    <loops>
+        <name>Loop_Through_Existing_Lead_Assignments</name>
+        <label>Loop Through Existing Lead Assignments</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_Existing_Lead_Assignments</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Do_Dates_Overlap</targetReference>
+        </nextValueConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Existing_Lead_Assignments</name>
+        <label>Get Existing Lead Assignments</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Through_Existing_Lead_Assignments</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Staff_User__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Staff_User__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Role__c</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Lead Coordinator</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Staff_Assignment__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Lead_Coordinator</targetReference>
+        </connector>
+        <object>Staff_Assignment__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

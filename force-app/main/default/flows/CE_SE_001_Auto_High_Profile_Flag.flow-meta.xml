@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>66.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Flag_Data_Sensitivity</name>
+        <label>Flag Data Sensitivity</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Data_Sensitivity_Flag__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>High-Profile</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <environments>Default</environments>
+    <interviewLabel>CE-SE-001 Auto High Profile Flag {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CE-SE-001 Auto High Profile Flag</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Flag_Data_Sensitivity</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>High_Profile_Markers__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Public Figure</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>High_Profile_Markers__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>VIP Referral</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>High_Profile_Markers__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Media-Sensitive</stringValue>
+            </value>
+        </filters>
+        <object>Private_Client__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

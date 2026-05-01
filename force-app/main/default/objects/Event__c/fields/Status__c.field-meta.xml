@@ -44,6 +44,21 @@
                 <default>false</default>
                 <label>Cancelled</label>
             </value>
+            <value>
+                <fullName>Initial Inquiry</fullName>
+                <default>false</default>
+                <label>Initial Inquiry</label>
+            </value>
+            <value>
+                <fullName>Consultation Scheduled</fullName>
+                <default>false</default>
+                <label>Consultation Scheduled</label>
+            </value>
+            <value>
+                <fullName>Consultation Completed</fullName>
+                <default>false</default>
+                <label>Consultation Completed</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

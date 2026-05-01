@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requires_Sales_Manager_Approval</fullName>
+    <active>true</active>
+    <description>Events with a Quoted Price above 500,000 EGP must be Manager Approved before moving to Proposal Sent.</description>
+    <errorConditionFormula>AND(
+    CASE(Status__c,
+        &apos;Proposal Sent&apos;, 1,
+        &apos;Confirmed&apos;, 1,
+        &apos;In Planning&apos;, 1,
+        &apos;Executing&apos;, 1,
+        &apos;Completed&apos;, 1,
+        0
+    ) = 1,
+    Quoted_Price__c &gt; 500000,
+    Manager_Approved__c = false
+)</errorConditionFormula>
+    <errorMessage>This event requires Sales Manager approval before moving to Proposal Sent because the Quoted Price is above 500,000.</errorMessage>
+</ValidationRule>

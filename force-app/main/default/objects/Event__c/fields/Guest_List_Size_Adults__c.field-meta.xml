@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Client_Satisfaction_Rating__c</fullName>
+    <fullName>Guest_List_Size_Adults__c</fullName>
     <externalId>false</externalId>
-    <label>Client Satisfaction Rating</label>
-    <precision>1</precision>
+    <label>Guest List Size (Adults)</label>
+    <precision>18</precision>
     <required>false</required>
     <scale>0</scale>
     <trackTrending>false</trackTrending>
