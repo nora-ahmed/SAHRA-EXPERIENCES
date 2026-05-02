@@ -94,10 +94,6 @@
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>vendor__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
         <tab>venue__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>

@@ -124,9 +124,6 @@
         <label>Check Target Days</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>Send_Readiness_Alert_Notification</targetReference>
-        </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>X14_Days</name>

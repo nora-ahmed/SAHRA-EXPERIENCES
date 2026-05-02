@@ -8,7 +8,7 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <customErrorMessages>
-            <errorMessage>Warning: This vendor has a Quality Rating of {!Get_Vendor.Quality_Rating__c}/5, which is below the recommended minimum of 3. Ensure you have verified this vendor is suitable for this Event.</errorMessage>
+            <errorMessage>Warning: This vendor has a Quality Rating of {!Get_Vendor.Quality_Rating__c}/5, which is below the recommended minimum of 3. If you want to proceed, tick the &apos;Confirm Low Quality Vendor&apos; checkbox and save again.</errorMessage>
             <isFieldError>false</isFieldError>
         </customErrorMessages>
     </customErrors>
@@ -28,6 +28,13 @@
                     <numberValue>3.0</numberValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.Confirm_Low_Quality_Vendor__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>under_Interaction</targetReference>
             </connector>
@@ -36,7 +43,7 @@
     </decisions>
     <environments>Default</environments>
     <interviewLabel>Vendor Quality Check Flow {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Vendor Quality Check Flow</label>
+    <label>Vendor Quality Check Flow new</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -84,8 +91,8 @@
             <targetReference>Get_Vendor</targetReference>
         </connector>
         <object>Event_Vendor__c</object>
-        <recordTriggerType>Create</recordTriggerType>
-        <triggerType>RecordAfterSave</triggerType>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
     </start>
     <status>Active</status>
 </Flow>

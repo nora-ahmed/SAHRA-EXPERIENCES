@@ -4,7 +4,7 @@
     <formula>OR(
     AND( Has_Venue__c = FALSE, ISBLANK(Venue_Waiver_Reason__c) ),
     AND( Catering_Vendor_Count__c = 0, ISBLANK(Catering_Waiver_Reason__c) ),
-    AND( Has_Lead_Coordinator__c = FALSE, ISBLANK(Coordinator_Waiver_Reason__c) )
+    AND(  Has_Lead_Coordinator__c  = FALSE, ISBLANK(Coordinator_Waiver_Reason__c) )
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Is Readiness Incomplete</label>

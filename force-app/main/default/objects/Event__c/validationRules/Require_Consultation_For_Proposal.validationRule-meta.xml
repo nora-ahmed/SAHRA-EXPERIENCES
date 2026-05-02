@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Consultation_For_Proposal</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    RecordType.DeveloperName = &quot;Social_Event&quot;,
+    ISPICKVAL(Status__c, &quot;Proposal Sent&quot;),
+    Completed_Consultations_Count__c = 0
+)</errorConditionFormula>
+    <errorMessage>A completed consultation is required before a proposal can be sent.</errorMessage>
+</ValidationRule>
