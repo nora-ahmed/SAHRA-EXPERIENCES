@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CCO_Approval_Sequence</fullName>
+    <active>true</active>
+    <description>CCO approval can only be given if the Sales Manager has already approved the event.</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(CCO_Approved__c),
+    CCO_Approved__c = true,
+    Manager_Approved__c = false
+)</errorConditionFormula>
+    <errorMessage>The Sales Manager must approve the event before the Chief Commercial Officer can approve it.</errorMessage>
+</ValidationRule>

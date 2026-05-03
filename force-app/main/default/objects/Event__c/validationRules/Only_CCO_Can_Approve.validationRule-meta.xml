@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_CCO_Can_Approve</fullName>
+    <active>true</active>
+    <description>Only users with the Chief Commercial Officer role or System Administrator profile can check the CCO Approved box.</description>
+    <errorConditionFormula>AND(
+    OR(
+        ISNEW(),
+        ISCHANGED(CCO_Approved__c)
+    ),
+    CCO_Approved__c = true,
+    $UserRole.Name &lt;&gt; 'Chief Commercial Officer',
+    $Profile.Name &lt;&gt; 'System Administrator'
+)</errorConditionFormula>
+    <errorDisplayField>CCO_Approved__c</errorDisplayField>
+    <errorMessage>Only the Chief Commercial Officer can approve events with a Quoted Price above 1,500,000 EGP.</errorMessage>
+</ValidationRule>

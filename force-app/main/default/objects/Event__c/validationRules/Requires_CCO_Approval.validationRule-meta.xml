@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requires_CCO_Approval</fullName>
+    <active>true</active>
+    <description>Events with a Quoted Price above 1,500,000 EGP must be CCO Approved before moving to Proposal Sent.</description>
+    <errorConditionFormula>AND(
+    CASE(Status__c,
+        'Proposal Sent', 1,
+        'Confirmed', 1,
+        'In Planning', 1,
+        'Executing', 1,
+        'Completed', 1,
+        0
+    ) = 1,
+    Quoted_Price__c &gt; 1500000,
+    CCO_Approved__c = false
+)</errorConditionFormula>
+    <errorMessage>This event requires Chief Commercial Officer approval before moving to Proposal Sent because the Quoted Price is above 1,500,000 EGP.</errorMessage>
+</ValidationRule>

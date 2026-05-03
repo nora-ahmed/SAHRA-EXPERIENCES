@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CCO_Approved__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checked when the Chief Commercial Officer approves the event. Required for events with a Quoted Price above 1,500,000.</description>
+    <label>CCO Approved</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
