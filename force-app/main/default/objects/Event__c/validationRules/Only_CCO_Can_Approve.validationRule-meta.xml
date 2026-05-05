@@ -9,8 +9,8 @@
         ISCHANGED(CCO_Approved__c)
     ),
     CCO_Approved__c = true,
-    $UserRole.Name &lt;&gt; 'Chief Commercial Officer',
-    $Profile.Name &lt;&gt; 'System Administrator'
+    $UserRole.Name &lt;&gt; &apos;Chief Commercial Officer&apos;,
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;
 )</errorConditionFormula>
     <errorDisplayField>CCO_Approved__c</errorDisplayField>
     <errorMessage>Only the Chief Commercial Officer can approve events with a Quoted Price above 1,500,000 EGP.</errorMessage>

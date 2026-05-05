@@ -4,8 +4,8 @@
     <active>true</active>
     <description>An Event with a discount greater than 10% of the calculated Standard Price must be approved before moving to Proposal Sent.</description>
     <errorConditionFormula>AND(
-    ISPICKVAL(Status__c, 'Proposal Sent'),
-    Discount_Percentage__c > 0.10,
+    ISPICKVAL(Status__c, &apos;Proposal Sent&apos;),
+    Discount_Percentage__c &gt; 0.10,
     NOT(Manager_Approved__c)
 )</errorConditionFormula>
     <errorMessage>Discounts greater than 10% of the Standard Price require Manager Approval before moving to Proposal Sent status.</errorMessage>

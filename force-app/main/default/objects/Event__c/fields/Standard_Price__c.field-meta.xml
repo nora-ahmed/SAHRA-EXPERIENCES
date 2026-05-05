@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Standard_Price__c</fullName>
-    <externalId>false</externalId>
     <formula>CASE(Event_Type__c,
-      'Conference', 100,
-      'Product Launch', 150,
-      'Retreat', 120,
-      'Training', 80,
-      'Wedding', 200,
-      'Engagement', 150,
-      'Anniversary', 100,
-      'Milestone Birthday', 80,
-      'Private Celebration', 120,
+      &apos;Conference&apos;, 100,
+      &apos;Product Launch&apos;, 150,
+      &apos;Retreat&apos;, 120,
+      &apos;Training&apos;, 80,
+      &apos;Wedding&apos;, 200,
+      &apos;Engagement&apos;, 150,
+      &apos;Anniversary&apos;, 100,
+      &apos;Milestone Birthday&apos;, 80,
+      &apos;Private Celebration&apos;, 120,
       100) * Expected_Headcount__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Standard Price</label>

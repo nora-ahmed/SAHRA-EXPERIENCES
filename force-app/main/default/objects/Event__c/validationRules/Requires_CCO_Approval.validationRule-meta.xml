@@ -5,11 +5,11 @@
     <description>Events with a Quoted Price above 1,500,000 EGP must be CCO Approved before moving to Proposal Sent.</description>
     <errorConditionFormula>AND(
     CASE(Status__c,
-        'Proposal Sent', 1,
-        'Confirmed', 1,
-        'In Planning', 1,
-        'Executing', 1,
-        'Completed', 1,
+        &apos;Proposal Sent&apos;, 1,
+        &apos;Confirmed&apos;, 1,
+        &apos;In Planning&apos;, 1,
+        &apos;Executing&apos;, 1,
+        &apos;Completed&apos;, 1,
         0
     ) = 1,
     Quoted_Price__c &gt; 1500000,
