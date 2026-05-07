@@ -28,17 +28,10 @@
             <name>Overlap_Found</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>Loop_Through_Existing_Lead_Assignments.Event__r.Event_Start_Date__c</leftValueReference>
-                <operator>LessThanOrEqualTo</operator>
-                <rightValue>
-                    <elementReference>$Record.Event__r.Event_End_Date__c</elementReference>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>Loop_Through_Existing_Lead_Assignments.Event__r.Event_End_Date__c</leftValueReference>
+                <leftValueReference>Get_Loop_Event.Event_End_Date__c</leftValueReference>
                 <operator>GreaterThanOrEqualTo</operator>
                 <rightValue>
-                    <elementReference>$Record.Event__r.Event_Start_Date__c</elementReference>
+                    <elementReference>Get_Current_Event.Event_Start_Date__c</elementReference>
                 </rightValue>
             </conditions>
             <connector>
@@ -64,9 +57,34 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_Existing_Lead_Assignments</targetReference>
+                <targetReference>Get_Current_Event</targetReference>
             </connector>
             <label>Lead Role</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Loop_Item_Lead_Coordinator</name>
+        <label>Is Loop Item Lead Coordinator?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Get_Loop_Event</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Lead Role</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Lead_Role</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_Through_Existing_Lead_Assignments.Role__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Lead Coordinator</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Loop_Event</targetReference>
+            </connector>
+            <label>Yes Lead Role</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -80,7 +98,7 @@
         <collectionReference>Get_Existing_Lead_Assignments</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
-            <targetReference>Do_Dates_Overlap</targetReference>
+            <targetReference>Is_Loop_Item_Lead_Coordinator</targetReference>
         </nextValueConnector>
     </loops>
     <processMetadataValues>
@@ -103,6 +121,27 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
+        <name>Get_Current_Event</name>
+        <label>Get Current Event</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Existing_Lead_Assignments</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Event__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Event__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Existing_Lead_Assignments</name>
         <label>Get Existing Lead Assignments</label>
         <locationX>0</locationX>
@@ -120,13 +159,6 @@
             </value>
         </filters>
         <filters>
-            <field>Role__c</field>
-            <operator>Contains</operator>
-            <value>
-                <stringValue>Lead Coordinator</stringValue>
-            </value>
-        </filters>
-        <filters>
             <field>Id</field>
             <operator>NotEqualTo</operator>
             <value>
@@ -137,6 +169,27 @@
         <object>Staff_Assignment__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>Get_Loop_Event</name>
+        <label>Get Loop Event</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Do_Dates_Overlap</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Loop_Through_Existing_Lead_Assignments.Event__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Event__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <start>
         <locationX>0</locationX>
         <locationY>0</locationY>
@@ -144,7 +197,7 @@
             <targetReference>Is_Lead_Coordinator</targetReference>
         </connector>
         <object>Staff_Assignment__c</object>
-        <recordTriggerType>Create</recordTriggerType>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordBeforeSave</triggerType>
     </start>
     <status>Active</status>

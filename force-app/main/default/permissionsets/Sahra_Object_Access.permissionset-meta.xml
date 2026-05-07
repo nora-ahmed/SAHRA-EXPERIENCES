@@ -90,10 +90,6 @@
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>Staff_Assignment__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
         <tab>venue__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>

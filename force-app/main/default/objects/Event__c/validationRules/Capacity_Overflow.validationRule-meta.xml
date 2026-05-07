@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Capacity_Overflow</fullName>
+    <active>true</active>
+    <errorConditionFormula>Total_Ticket_Tier_Capacity__c &gt; Total_Capacity__c</errorConditionFormula>
+    <errorMessage>Ticket tier capacity exceeds total event capacity.</errorMessage>
+</ValidationRule>

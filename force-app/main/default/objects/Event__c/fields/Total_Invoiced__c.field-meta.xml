@@ -6,7 +6,7 @@
     <summaryFilterItems>
         <field>Payment_Milestone__c.Status__c</field>
         <operation>equals</operation>
-        <value>Invoiced;Paid</value>
+        <value>Invoiced</value>
     </summaryFilterItems>
     <summaryForeignKey>Payment_Milestone__c.Event__c</summaryForeignKey>
     <summaryOperation>sum</summaryOperation>

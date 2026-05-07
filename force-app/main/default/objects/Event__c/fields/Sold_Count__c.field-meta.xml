@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sold_Count__c</fullName>
+    <label>Sold Count</label>
+    <summaryFilterItems>
+        <field>Ticket_Tier__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Closed</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Ticket_Tier__c.Sahra_Event__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

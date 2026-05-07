@@ -16,6 +16,7 @@
         <field>Standard_Price__c</field>
         <field>Quoted_Price__c</field>
         <field>Discount_Percentage__c</field>
+        <field>Justification__c</field>
     </approvalPageFields>
     <approvalStep>
         <allowDelegate>true</allowDelegate>
@@ -108,6 +109,10 @@
             <name>Reset_Manager_Approved</name>
             <type>FieldUpdate</type>
         </action>
+        <action>
+            <name>Set_Approval_Rejected</name>
+            <type>FieldUpdate</type>
+        </action>
     </finalRejectionActions>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
     <initialSubmissionActions>
@@ -117,6 +122,10 @@
         </action>
         <action>
             <name>Reset_Manager_Approved</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Set_Status_Pending_Approval</name>
             <type>FieldUpdate</type>
         </action>
     </initialSubmissionActions>

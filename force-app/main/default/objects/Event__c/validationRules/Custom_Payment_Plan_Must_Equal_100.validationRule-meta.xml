@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom_Payment_Plan_Must_Equal_100</fullName>
+    <active>true</active>
+    <description>For Custom Payment Plans, the Deposit and Second Payment percentages must total exactly 100%.</description>
+    <errorConditionFormula>AND(
+    RecordType.DeveloperName = &quot;Social_Event&quot;,
+    Custom_Payment_Plan__c = true,
+    (BLANKVALUE(Deposit_Percentage__c, 0) + BLANKVALUE(Second_Payment_Percentage__c, 0)) &lt;&gt; 100
+)</errorConditionFormula>
+    <errorMessage>For Custom Payment Plans, the Deposit and Second Payment percentages must total exactly 100%.</errorMessage>
+</ValidationRule>

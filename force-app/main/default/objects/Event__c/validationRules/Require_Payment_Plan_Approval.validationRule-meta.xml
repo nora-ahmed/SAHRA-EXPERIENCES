@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Payment_Plan_Approval</fullName>
+    <active>true</active>
+    <description>If a custom payment plan deposit is below 40%, it requires Sales Manager approval.</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Status__c, &quot;Confirmed&quot;),
+    RecordType.DeveloperName = &quot;Social_Event&quot;,
+    Custom_Payment_Plan__c = true,
+    Deposit_Percentage__c &lt; 40,
+    Payment_Plan_Approved__c = false
+)</errorConditionFormula>
+    <errorMessage>Custom Payment Plans with a deposit below 40% require Sales Manager approval. Please submit for approval or check Payment Plan Approved.</errorMessage>
+</ValidationRule>

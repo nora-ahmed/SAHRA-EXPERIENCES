@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Confirmed_Headcount__c</fullName>
+    <label>Confirmed Headcount</label>
+    <summarizedField>Guest__c.Calculated_Headcount__c</summarizedField>
+    <summaryFilterItems>
+        <field>Guest__c.RSVP_Status__c</field>
+        <operation>equals</operation>
+        <value>Confirmed</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Guest__c.Sahra_Event__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

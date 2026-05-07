@@ -14,12 +14,6 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </inputParameters>
-        <inputParameters>
-            <name>processDefinitionNameOrId</name>
-            <value>
-                <stringValue>Event_High_Value_Approval</stringValue>
-            </value>
-        </inputParameters>
         <nameSegment>submit</nameSegment>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>

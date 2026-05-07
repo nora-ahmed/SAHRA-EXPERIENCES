@@ -28,6 +28,25 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>Decision_Making_Role__c</picklist>
+        <values>
+            <fullName>Economic Buyer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>End User</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Influencer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technical Buyer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Event_Type__c</picklist>
         <values>
             <fullName>Anniversary</fullName>
@@ -66,6 +85,33 @@
         </values>
         <values>
             <fullName>Not Allowed</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Public_Event_Type__c</picklist>
+        <values>
+            <fullName>Concert</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Conference</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cultural Festival</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Workshop Series</fullName>
             <default>false</default>
         </values>
     </picklistValues>

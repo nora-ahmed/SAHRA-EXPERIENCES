@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_System_Can_Approve_Payment_Plan</fullName>
+    <active>true</active>
+    <description>Only the approval process can check the Payment Plan Approved box.</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(Payment_Plan_Approved__c),
+    Payment_Plan_Approved__c = true,
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;
+)</errorConditionFormula>
+    <errorDisplayField>Payment_Plan_Approved__c</errorDisplayField>
+    <errorMessage>Payment Plan Approval must be granted through the approval process.</errorMessage>
+</ValidationRule>

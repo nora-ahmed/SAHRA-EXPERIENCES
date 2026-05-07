@@ -59,6 +59,32 @@
                 <default>false</default>
                 <label>Consultation Completed</label>
             </value>
+            <value>
+                <fullName>Planning</fullName>
+                <default>false</default>
+                <label>Planning</label>
+            </value>
+            <value>
+                <fullName>On Sale</fullName>
+                <default>false</default>
+                <label>On Sale</label>
+            </value>
+            <value>
+                <fullName>Sales Paused</fullName>
+                <default>false</default>
+                <label>Sales Paused</label>
+            </value>
+            <value>
+                <fullName>Sold Out</fullName>
+                <default>false</default>
+                <label>Sold Out</label>
+            </value>
+            <value>
+                <fullName>Pending Approval</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Pending Approval</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

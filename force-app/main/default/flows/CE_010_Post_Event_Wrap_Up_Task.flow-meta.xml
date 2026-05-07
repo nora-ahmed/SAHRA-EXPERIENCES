@@ -73,7 +73,7 @@
         <inputAssignments>
             <field>OwnerId</field>
             <value>
-                <elementReference>varLeadCoordinator.Staff_User__r.Id</elementReference>
+                <elementReference>$Record.Lead_Coordinator__r.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
